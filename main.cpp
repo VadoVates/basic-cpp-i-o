@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -35,7 +36,13 @@ int main ()
     char choice;
     int lineCounter = 0;
     
-    cout << "Zadanie 2.4.1: podstawowa obsluga strumienia we/wy" << endl << endl;
+    for (int i=0; i<51; i++)
+        cout << "-";
+    cout << endl;
+    cout << "Zadanie 2.4.1: podstawowa obsluga strumienia we/wy" << endl;
+    for (int i=0; i<51; i++)
+        cout << "-";
+    cout << endl << endl;
     cout << "Podaj poczatek przedzialu: ";
     cin >> p;
     cout << "Podaj koniec przedzialu: ";
@@ -46,8 +53,10 @@ int main ()
     cout << "Czy chcesz wyswietlic zawartosc tablicy wylosowanych liczb [t]? ";
     cin >> choice;
     if (choice=='t' || choice=='T')
+    {
+        cout << endl;
         ArrayPrint2D(A);
-
+    }
     ofstream fileOut;
 
     if (OpenOutputFile (fileOut, "plikWynikowy.txt")==false)
@@ -72,10 +81,20 @@ int main ()
     cout << "Czy chcesz wyswietlic zawartosc tablicy transponowanej [t]? ";
     cin >> choice;
     if (choice=='t' || choice=='T')
+    {
+        cout << endl;
         ArrayPrint2D(A);
-
+    }
     int N;
-    cout << endl << "Zadanie 2.4.2: struktury + obsluga we/wy" << endl << endl;
+
+    cout << endl;
+    for (int i=0; i<51; i++)
+        cout << "-";
+    cout << endl;
+    cout << "Zadanie 2.4.2: struktury + obsluga we/wy" << endl;
+    for (int i=0; i<51; i++)
+        cout << "-";
+    cout << endl << endl;
 
     lineCounter = 0;
     if (OpenFileRead(fileInput, "pracownicy.txt", lineCounter)==false)
@@ -90,7 +109,7 @@ int main ()
         cin >> N;
         if (N<0 || N>lineCounter)
         {
-            cout << endl << "Zakres przekracza ilosc rekordow w pliku. Podaj liczbe miedzy 0, a ";
+            cout << "Zakres przekracza ilosc rekordow w pliku. Podaj liczbe miedzy 0, a ";
             cout << lineCounter << "." << endl;
         }
     } while (N<0 || N>lineCounter);
@@ -99,24 +118,32 @@ int main ()
     FileRead1D (fileInput, worker, N);
     fileInput.close();
 
+    cout << endl;
     cout << "Czy chcesz wyswietlic zawartosc tablicy pracownikow [t]? ";
     cin >> choice;
     if (choice=='t' || choice=='T')
+    {
+        cout << endl;
         ArrayPrint1D (worker, N);
-    
+    }
     unsigned int seniority;
+    cout << endl;
     cout << "Dla jakiego minimalnego stazu, obliczyc srednia pensje? ";
     cin >> seniority;
 
     cout << "Dla stazu trwajacego >= " << seniority << ", srednia pensja wynosi: " << AverageSalary (worker, N, seniority) << endl;
     
     StringSorting (worker, N);
+    cout << endl;
     cout << "Czy chcesz wyswietlic zawartosc posortowanej alfabetycznie tablicy pracownikow [t]? ";
     cin >> choice;
     if (choice=='t' || choice=='T')
+    {
+        cout << endl;
         ArrayPrint1D (worker, N);
-
+    }
     string newFileName;
+    cout << endl;
     cout << "Podaj nazwe pliku (wraz z rozszerzeniem), do jakiego chcesz zapisac posortowana alfabetycznie tablice pracownikow" << endl;
     cin >> newFileName;
 
